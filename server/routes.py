@@ -2,18 +2,18 @@
 from flask import request, render_template, make_response
 
 from server.webapp import flaskapp, cursor
-from server.models import Book
+from server.models import Bookest.args.get('author')
+    read = bool(request.args.get('read'))
+
 
 
 @flaskapp.route('/')
 def index():
     name = request.args.get('name')
-    author = request.args.get('author')
-    read = bool(request.args.get('read'))
-
+    author = requ
     if name:
         cursor.execute(
-            "SELECT * FROM books WHERE name LIKE %s", name
+            "SELECT * FROM books WHERE name LIKE '%" + name + "%'"
         )
         books = [Book(*row) for row in cursor]
 
